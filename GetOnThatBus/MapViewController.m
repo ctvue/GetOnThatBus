@@ -43,6 +43,7 @@
             [self.allBusStops addObject:item]; //all dictionary objects into all busstop array;
             annotation.coordinate = CLLocationCoordinate2DMake(item.latitude, item.longitude);
             annotation.title = [NSString stringWithFormat:@"%@ - Route %@", item.ctaStopName, item.routes];
+            annotation.subtitle = item.intermodalTransfer;
             [self.annotations addObject:annotation];
             [self.mapView addAnnotation:annotation];
         }
@@ -70,9 +71,8 @@
     if ([segue.identifier isEqualToString:@"mapToBusStopSegue"]) {
         MKAnnotationView *annotationView = sender;
         BusStopViewController *busstopVC = segue.destinationViewController;
-//        busstopVC.ctaStopName = annotationView.annotation
-
-        
+        busstopVC.ctaStopName = annotationView.annotation.title;
+        busstopVC.intermodalTransfer = annotationView.annotation.subtitle;
     }
 }
 
