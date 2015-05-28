@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A1E9601B1692C800EB81FB /* BusStopMKPointAnnotaion.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A1E95F1B1692C800EB81FB /* BusStopMKPointAnnotaion.m */; };
+		55A1E9631B16983500EB81FB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A1E9621B16983500EB81FB /* TableViewController.m */; };
 		F228BC1B1B165DA000A34EAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F228BC1A1B165DA000A34EAD /* main.m */; };
 		F228BC1E1B165DA000A34EAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F228BC1D1B165DA000A34EAD /* AppDelegate.m */; };
 		F228BC211B165DA000A34EAD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F228BC201B165DA000A34EAD /* MapViewController.m */; };
@@ -30,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55A1E95E1B1692C800EB81FB /* BusStopMKPointAnnotaion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopMKPointAnnotaion.h; sourceTree = "<group>"; };
+		55A1E95F1B1692C800EB81FB /* BusStopMKPointAnnotaion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopMKPointAnnotaion.m; sourceTree = "<group>"; };
+		55A1E9611B16983500EB81FB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		55A1E9621B16983500EB81FB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		F228BC151B165DA000A34EAD /* GetOnThatBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetOnThatBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F228BC191B165DA000A34EAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F228BC1A1B165DA000A34EAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,9 +101,13 @@
 				F228BC1D1B165DA000A34EAD /* AppDelegate.m */,
 				F228BC1F1B165DA000A34EAD /* MapViewController.h */,
 				F228BC201B165DA000A34EAD /* MapViewController.m */,
+				55A1E95E1B1692C800EB81FB /* BusStopMKPointAnnotaion.h */,
+				55A1E95F1B1692C800EB81FB /* BusStopMKPointAnnotaion.m */,
 				F228BC401B165FBF00A34EAD /* BusStop.h */,
 				F228BC411B165FBF00A34EAD /* BusStop.m */,
 				F228BC221B165DA000A34EAD /* Main.storyboard */,
+				55A1E9611B16983500EB81FB /* TableViewController.h */,
+				55A1E9621B16983500EB81FB /* TableViewController.m */,
 				F228BC431B16796A00A34EAD /* BusStopViewController.h */,
 				F228BC441B16796A00A34EAD /* BusStopViewController.m */,
 				F228BC251B165DA000A34EAD /* Images.xcassets */,
@@ -234,9 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F228BC421B165FBF00A34EAD /* BusStop.m in Sources */,
+				55A1E9601B1692C800EB81FB /* BusStopMKPointAnnotaion.m in Sources */,
 				F228BC451B16796A00A34EAD /* BusStopViewController.m in Sources */,
 				F228BC211B165DA000A34EAD /* MapViewController.m in Sources */,
 				F228BC1E1B165DA000A34EAD /* AppDelegate.m in Sources */,
+				55A1E9631B16983500EB81FB /* TableViewController.m in Sources */,
 				F228BC1B1B165DA000A34EAD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +444,7 @@
 				F228BC3A1B165DA000A34EAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F228BC3B1B165DA000A34EAD /* Build configuration list for PBXNativeTarget "GetOnThatBusTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +453,7 @@
 				F228BC3D1B165DA000A34EAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

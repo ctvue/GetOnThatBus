@@ -20,8 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.addressLabel.text = self.ctaStopName;
-    self.intermodalTransferLabel.text = self.intermodalTransfer;
+    self.addressLabel.text = self.currentBusStop.ctaStopName;
+    self.routesLabel.text = self.currentBusStop.routes;
+    self.intermodalTransferLabel.text = self.currentBusStop.intermodalTransfer;
+    //self.
 }
 
 

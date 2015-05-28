@@ -12,8 +12,6 @@
 
 @interface BusStopViewController : UIViewController
 
-@property NSString *ctaStopName;
-@property NSString *routes;
-@property NSString *intermodalTransfer;
+@property BusStop *currentBusStop;
 
 @end

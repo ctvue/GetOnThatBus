@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import "BusStop.h"
 #import "BusStopViewController.h"
+#import "BusStopMKPointAnnotaion.h"
+#import "TableViewController.h"
 #import <MapKit/MapKit.h>
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -39,8 +41,9 @@
 
         for (NSDictionary *object in self.rows) {
             BusStop *item = [[BusStop alloc] initWithBusStop:object];
-            MKPointAnnotation *annotation = [MKPointAnnotation new];
+            BusStopMKPointAnnotaion *annotation = [BusStopMKPointAnnotaion new];
             [self.allBusStops addObject:item]; //all dictionary objects into all busstop array;
+            annotation.theBusStop = item;
             annotation.coordinate = CLLocationCoordinate2DMake(item.latitude, item.longitude);
             annotation.title = [NSString stringWithFormat:@"%@ - Route %@", item.ctaStopName, item.routes];
             annotation.subtitle = item.intermodalTransfer;
@@ -52,6 +55,14 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+    if ([annotation.subtitle isEqualToString:@"Metra"])
+    {
+        pin.pinColor = MKPinAnnotationColorGreen;
+    }
+    else if([annotation.subtitle isEqualToString:@"Pace"])
+    {
+        pin.pinColor = MKPinAnnotationColorPurple;
+    }
     pin.canShowCallout = YES;
     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
@@ -66,13 +77,24 @@
     [self performSegueWithIdentifier:@"mapToBusStopSegue" sender:view];
 }
 
+- (IBAction)mapTableViewCtrlChanged:(UISegmentedControl *)sender {
+    UISegmentedControl *seg = sender;
+    if (seg.selectedSegmentIndex == 1) {
+        [self performSegueWithIdentifier:@"TableViewSegue" sender:self];
+    }
+}
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([segue.identifier isEqualToString:@"mapToBusStopSegue"]) {
         MKAnnotationView *annotationView = sender;
+        BusStopMKPointAnnotaion *annotation = annotationView.annotation;
         BusStopViewController *busstopVC = segue.destinationViewController;
-        busstopVC.ctaStopName = annotationView.annotation.title;
-        busstopVC.intermodalTransfer = annotationView.annotation.subtitle;
+        busstopVC.currentBusStop = annotation.theBusStop;
+    } else if ([segue.identifier isEqualToString:@"TableViewSegue"]){
+        TableViewController *tableViewVC = segue.destinationViewController;
+        tableViewVC.busStopsToShow = self.allBusStops;
     }
 }
 
