@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "BusStop.h"
 #import "BusStopViewController.h"
-#import "BusStopMKPointAnnotaion.h"
+#import "BusStopMKPointAnnotation.h"
 #import "TableViewController.h"
 #import <MapKit/MapKit.h>
 
@@ -41,7 +41,7 @@
 
         for (NSDictionary *object in self.rows) {
             BusStop *item = [[BusStop alloc] initWithBusStop:object];
-            BusStopMKPointAnnotaion *annotation = [BusStopMKPointAnnotaion new];
+            BusStopMKPointAnnotation *annotation = [BusStopMKPointAnnotation new];
             [self.allBusStops addObject:item]; //all dictionary objects into all busstop array;
             annotation.theBusStop = item;
             annotation.coordinate = CLLocationCoordinate2DMake(item.latitude, item.longitude);
@@ -89,7 +89,7 @@
 
     if ([segue.identifier isEqualToString:@"mapToBusStopSegue"]) {
         MKAnnotationView *annotationView = sender;
-        BusStopMKPointAnnotaion *annotation = annotationView.annotation;
+        BusStopMKPointAnnotation *annotation = annotationView.annotation;
         BusStopViewController *busstopVC = segue.destinationViewController;
         busstopVC.currentBusStop = annotation.theBusStop;
     } else if ([segue.identifier isEqualToString:@"TableViewSegue"]){
